@@ -1,0 +1,44 @@
+/venv/
+
+# Credentials and secrets
+*.key
+*.pem
+*.p12
+*.pfx
+*.cer
+*.crt
+*.der
+.env
+.env.*
+!.env.example
+secrets.yml
+secrets.yaml
+
+# API keys and tokens
+**/credentials.json
+**/token.json
+**/auth.json
+.aws/
+.azure/
+.gcloud/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Configuration with sensitive data
+config.ini
+config.yml
+config.yaml
+!config.example.*
+
+# Logs that may contain sensitive info
+*.log
+
+# SSH keys
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+*.ppk

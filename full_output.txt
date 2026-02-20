@@ -1,0 +1,56 @@
+Total LA County tracts: 2343
+After removing NaNs: 2296 tracts
+
+Population A (High Traffic >90th): 418 tracts
+Population B (Low Traffic <10th): 65 tracts
+
+Available metrics: ['asthma_pctl', 'pm25', 'poverty_pctl', 'hispanic_pct', 'african_american_pct', 'white_pct']
+
+--- Mean Disparity Table ---
+                      Population A (High Traffic)  ...  Delta (A - B)
+asthma_pctl                             54.977204  ...       5.323856
+pm25                                    11.876775  ...       1.547471
+poverty_pctl                            57.959414  ...      16.455162
+hispanic_pct                            51.914665  ...      19.216973
+african_american_pct                     7.600311  ...       1.742773
+white_pct                               24.242679  ...     -22.607474
+
+[6 rows x 3 columns]
+
+--- Pearson Correlation Matrix ---
+                  pm25  poverty_pctl  asthma_pctl
+pm25          1.000000      0.147852     0.032715
+poverty_pctl  0.147852      1.000000     0.600709
+asthma_pctl   0.032715      0.600709     1.000000
+
+--- Regression Results ---
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:            asthma_pctl   R-squared:                       0.364
+Model:                            OLS   Adj. R-squared:                  0.364
+Method:                 Least Squares   F-statistic:                     656.4
+Date:                Sat, 14 Feb 2026   Prob (F-statistic):          4.07e-226
+Time:                        00:36:38   Log-Likelihood:                -10395.
+No. Observations:                2296   AIC:                         2.080e+04
+Df Residuals:                    2293   BIC:                         2.081e+04
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+================================================================================
+                   coef    std err          t      P>|t|      [0.025      0.975]
+--------------------------------------------------------------------------------
+const           39.1168      5.746      6.807      0.000      27.849      50.385
+pm25            -1.6891      0.496     -3.406      0.001      -2.662      -0.717
+poverty_pctl     0.6089      0.017     36.178      0.000       0.576       0.642
+==============================================================================
+Omnibus:                        2.638   Durbin-Watson:                   1.773
+Prob(Omnibus):                  0.267   Jarque-Bera (JB):                2.690
+Skew:                          -0.073   Prob(JB):                        0.261
+Kurtosis:                       2.918   Cond. No.                         787.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+Key Finding: PM2.5 coefficient = -1.6891, p-value = 6.7012e-04
+
+Visualizations saved to 'analysis_results.png'
